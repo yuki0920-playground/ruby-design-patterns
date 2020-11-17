@@ -30,8 +30,6 @@ class Training
     elsif @type == :tinning
       puts '踏み台から降ります'
     end
-
-
   end
 end
 
