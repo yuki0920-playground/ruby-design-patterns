@@ -3,10 +3,14 @@ class WheyProtein
     @name = 'ホエイプロテイン'
   end
 
+  def prepare
+    add_water
+    shake
+  end
+
   def add_water
     puts "#{@name}: 水を入れます"
   end
-
 
   def shake
     puts "#{@name}: 10回シェイクします"
@@ -16,6 +20,11 @@ end
 class SoyProtein
   def initialize
     @name = 'ソイプロテイン'
+  end
+
+  def prepare
+    add_milk
+    shake
   end
 
   def add_milk
@@ -29,21 +38,21 @@ end
 
 class ProteinPreparer
   def initialize(water, milk)
-    @protein =
-      if water && !milk
-        WheyProtein.new
-      elsif !water && milk
-        SoyProtein.new
-      end
+    @protein = ProteinCreator.create(water, milk)
   end
 
   def execute
-    if @protein.class == WheyProtein
-      @protein.add_water
-    elsif @protein.class == SoyProtein
-      @protein.add_milk
+    @protein.prepare
+  end
+end
+
+class ProteinCreator
+  def self.create(water, milk)
+    if water && !milk
+      WheyProtein.new
+    elsif !water && milk
+      SoyProtein.new
     end
-    @protein.shake
   end
 end
 
