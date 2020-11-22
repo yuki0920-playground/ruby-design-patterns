@@ -10,23 +10,23 @@ class User
   end
 
   def sign_up
+    puts "何かしらの会員登録処理"
     UserMailer.sign_up(self)
   end
 
   def retire
+    puts "何かしらの会員退会処理"
     UserMailer.retire(self)
   end
 end
 
 class UserMailer
   def self.sign_up(user)
-    puts "#{user.name}が登録しました"
-    puts "登録日は #{user.start_at} です"
+    puts "メール送信処理(#{user.name}は #{user.start_at} に登録しました。)"
   end
 
   def self.retire(user)
-    puts "#{user.name}が退会しました"
-    puts "登録日は #{user.retire_at} です"
+    puts "メール送信処理(#{user.name}は #{user.retire_at} に退会しました。)"
   end
 end
 

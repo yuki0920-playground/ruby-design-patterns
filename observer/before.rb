@@ -8,13 +8,13 @@ class User
   end
 
   def send_sign_up_mail
-    puts "#{@name}が登録しました"
-    puts "登録日は #{@start_at} です"
+    puts "何かしらの会員登録処理"
+    puts "メール送信処理(#{@name}は #{@start_at} に登録しました。)"
   end
 
   def send_retire_mail
-    puts "#{@name}が退会しました"
-    puts "登録日は #{@retire_at} です"
+    puts "何かしらの会員退会処理"
+    puts "メール送信処理(#{@name}は #{@retire_at} に退会しました。)"
   end
 end
 
